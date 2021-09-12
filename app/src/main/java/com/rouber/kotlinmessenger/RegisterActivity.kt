@@ -2,6 +2,7 @@ package com.rouber.kotlinmessenger
 
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -55,8 +56,9 @@ class RegisterActivity : AppCompatActivity() {
 
 
             selectphoto_image_register.setImageBitmap(bitmap)
-            photo_button_register.alpha=0f
-          //  val bitmapDrawable = BitmapDrawable(bitmap)
+                photo_button_register.alpha = 0f
+
+            //  val bitmapDrawable = BitmapDrawable(bitmap)
          //   photo_button_register.setBackgroundDrawable(bitmapDrawable)
         }
     }
@@ -125,7 +127,13 @@ class RegisterActivity : AppCompatActivity() {
         ref.setValue(user)
             .addOnSuccessListener {
                 Log.d("RegisterActivity", "Пользователь сохранен в базе данных")
+
+                val intent = Intent(this, LatestMessagesActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
     }
 }
-class User(val uid:String, val username: String, val profileImageUrl: String)
+class User(val uid:String, val username: String, val profileImageUrl: String){
+    constructor() : this ("", "", "")
+}

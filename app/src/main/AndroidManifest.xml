@@ -9,17 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KotlinMessenger">
-        <activity
-            android:name=".RegisterActivity"
-            android:exported="true">
+
+        <activity android:name=".LatestMessagesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                android:exported="true"
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
-
+        <activity android:name=".RegisterActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                android:exported="true"
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".NewMessagesActivuty">
+        <meta-data android:name="android.support.PARENT_ACTIVITY"
+            android:value=".LatestMessagesActivity"/>
         </activity>
     </application>
 
