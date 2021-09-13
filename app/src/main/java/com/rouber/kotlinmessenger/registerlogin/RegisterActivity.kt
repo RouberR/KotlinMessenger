@@ -2,7 +2,6 @@ package com.rouber.kotlinmessenger
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,6 +10,9 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.rouber.kotlinmessenger.messages.LatestMessagesActivity
+import com.rouber.kotlinmessenger.models.User
+import com.rouber.kotlinmessenger.registerlogin.LoginActivity
 import kotlinx.android.synthetic.main.activity_register.*
 import java.util.*
 
@@ -133,7 +135,4 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
             }
     }
-}
-class User(val uid:String, val username: String, val profileImageUrl: String){
-    constructor() : this ("", "", "")
 }

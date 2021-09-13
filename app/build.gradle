@@ -3,6 +3,10 @@ plugins {
     id 'kotlin-android'
 }
 
+androidExtensions{
+    experimental = true
+}
+
 android {
     compileSdk 30
 
